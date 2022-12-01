@@ -12,4 +12,5 @@ rootProject.name = 'data-structures'
 include('app')
 include('tree')
 include 'linkedlist'
+include 'stack'
 
