@@ -25,7 +25,8 @@ public class ArrayStack<T> implements Stack<T> {
     public T pop() throws EmptyStackException {
         if (isEmpty()) throw new EmptyStackException();
         T current = values[size - 1];
-//        values[size] = null;
+        // Avoid loitering!
+        values[size - 1] = null;
         size--;
         return current;
     }

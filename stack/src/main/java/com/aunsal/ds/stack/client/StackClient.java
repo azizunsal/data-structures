@@ -10,7 +10,7 @@ public class StackClient {
     public static String EXIT_IDENTIFIER = "exit";
 
     public static void main(String[] args) {
-//        Stack<String> stack = new LinkedStack<String>();
+        // Stack<String> stack = new LinkedStack<String>();
         Stack<String> stack = new ArrayStack<>(String.class);
         boolean isStackEmpty = stack.isEmpty();
         System.out.println("Is the stack empty=" + isStackEmpty);
