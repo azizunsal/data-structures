@@ -26,6 +26,11 @@ public class QueueWithFixedSizeArray<T> implements Queue<T> {
         if (isEmpty()) throw new IllegalStateException("Queue is empty!");
         T itemToBeRemoved = arr[first++];
         arr[first - 1] = null;
+        if (isEmpty()) {
+            first = 0;
+            last = 0;
+            System.out.println("array re-arranged.");
+        }
         return itemToBeRemoved;
     }
 
