@@ -3,8 +3,6 @@ package com.aunsal.ds.queue.client.factory;
 import com.aunsal.ds.queue.Queue;
 import com.aunsal.ds.queue.impl.LinkedListQueue;
 
-import java.util.Scanner;
-
 public class LinkedListBasedQueueClientFactory implements AbstractQueueClientFactory {
     private Queue<String> queue;
 

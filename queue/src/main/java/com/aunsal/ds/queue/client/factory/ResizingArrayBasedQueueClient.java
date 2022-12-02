@@ -1,16 +1,17 @@
 package com.aunsal.ds.queue.client.factory;
 
 import com.aunsal.ds.queue.Queue;
-import com.aunsal.ds.queue.impl.QueueWithFixedSizeArray;
+import com.aunsal.ds.queue.impl.QueueWithResizingArray;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ArrayBasedQueueClient extends QueueClient {
+public class ResizingArrayBasedQueueClient extends QueueClient {
+
     private Queue<String> queue;
     private Scanner scanner;
 
-    public ArrayBasedQueueClient(Queue<String> queue) {
+    public ResizingArrayBasedQueueClient(Queue queue) {
         this.queue = queue;
         this.scanner = new Scanner(System.in);
     }
@@ -29,10 +30,10 @@ public class ArrayBasedQueueClient extends QueueClient {
     public void printQueue(Queue queue) {
         if (queue.isEmpty()) System.out.printf("array is empty!");
 
-        String[] arr = (String[]) ((QueueWithFixedSizeArray) queue).arr;
-        int f = ((QueueWithFixedSizeArray) queue).first;
-        int l = ((QueueWithFixedSizeArray) queue).last;
-        System.out.println("arr=" + Arrays.toString(arr) + "\nfirst=" + f + ", last=" + l);
+        String[] arr = (String[]) ((QueueWithResizingArray) queue).arr;
+        int first = ((QueueWithResizingArray) queue).first;
+        int last = ((QueueWithResizingArray) queue).last;
+        int sz = ((QueueWithResizingArray) queue).size;
+        System.out.println("arr=" + Arrays.toString(arr) + "\nfirst=" + first + ", last=" + last + ", size=" + sz);
     }
-
 }
