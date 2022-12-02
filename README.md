@@ -5,7 +5,7 @@
     - [X] Implement a stack using array data structure.
 2. Queues
     - [X] Implement a queue using linked list data structure.
-    - [ ] Implement a queue using array data structure.
+    - [X] Implement a queue using array data structure.
         - [ ] Support iteration without revealing the internal working of the queue.
 3. Linked Lists
 4. Trees
