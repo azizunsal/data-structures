@@ -10,8 +10,8 @@
 
 rootProject.name = 'data-structures'
 include('app')
-include('tree')
-include 'linkedlist'
 include 'stack'
 include 'queue'
+include 'binary-search-tree'
+include 'linkedlist'
 

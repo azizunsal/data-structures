@@ -10,10 +10,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/binary-search-tree" />
             <option value="$PROJECT_DIR$/linkedlist" />
             <option value="$PROJECT_DIR$/queue" />
             <option value="$PROJECT_DIR$/stack" />
-            <option value="$PROJECT_DIR$/tree" />
           </set>
         </option>
       </GradleProjectSettings>
