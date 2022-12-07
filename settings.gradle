@@ -14,4 +14,5 @@ include 'stack'
 include 'queue'
 include 'binary-search-tree'
 include 'linkedlist'
+include 'binary-tree'
 

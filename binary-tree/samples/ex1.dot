@@ -1,0 +1,7 @@
+graph {
+    node[shape=circle]
+    A -- B;
+    A -- C;
+    B -- B1;
+    B -- B2;
+}
