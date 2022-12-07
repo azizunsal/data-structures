@@ -17,6 +17,8 @@ public final class BinaryTreeHelper {
     /**
      * Creates a binary tree from given integer array.
      * The array cannot contain null values
+     * <p>
+     * Doesn't work for arrays which contain null values.
      *
      * @param parent current node.
      * @param idx    current index.
