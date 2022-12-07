@@ -1,4 +1,4 @@
-package com.aunsal.ds.tree;
+package com.aunsal.ds.bstree;
 
 public class TreeNode {
     public int data;

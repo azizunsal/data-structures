@@ -20,5 +20,5 @@ test {
 }
 
 application {
-    mainClass = 'com.aunsal.ds.tree.Client'
+    mainClass = 'com.aunsal.ds.bstree.Client'
 }

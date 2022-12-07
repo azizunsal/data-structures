@@ -1,9 +1,8 @@
-package com.aunsal.ds.tree.client;
+package com.aunsal.ds.bstree.client;
 
-import com.aunsal.ds.tree.BinarySearchTree;
-import com.aunsal.ds.tree.helper.BTreePrinter;
+import com.aunsal.ds.bstree.BinarySearchTree;
 
-public class Client {
+public class BstClient {
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
         bst.insert(10);
@@ -15,7 +14,6 @@ public class Client {
         bst.insert(56);
         bst.insert(22);
         bst.insert(5);
-        BTreePrinter.printNode(bst.root);
         System.out.println("min val=" + bst.getMin());
         System.out.println("max val=" + bst.getMax());
     }
