@@ -3,6 +3,8 @@ package com.aunsal.ds.btree.helper;
 import com.aunsal.ds.btree.TreeNode;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public final class BinaryTreeHelper {
     private BinaryTreeHelper() {
@@ -48,37 +50,78 @@ public final class BinaryTreeHelper {
         return parent;
     }
 
-    public static void printNodesByLevel(Integer[] arr) {
-        System.out.println(Arrays.toString(arr));
-        int startingIndex = 0;
-        for (int i = 0; i < arr.length; i++) {
-            int nodeCount = (int) Math.pow(2d, i);
-            System.out.println("level=" + i + ", node count=" + nodeCount + ", startingIndex=" + startingIndex);
-            for (int j = startingIndex; j < startingIndex + nodeCount; j++) {
-                if (j > arr.length - 1) {
-                    //System.out.println("There is not enough item in the input array!");
-                    break;
+    /**
+     * Creates a binary tree from given integer array. Array can contain null values.
+     * Method behaves null values as path terminators.
+     *
+     * @param arr
+     * @return
+     */
+    public static TreeNode createBinaryTreeFromArrayWithQueue(final Integer[] arr) {
+        System.out.println("Creating a binary tree from the input array: \n" + Arrays.toString(arr));
+        Queue<Integer> q1 = new LinkedList<>();
+        q1.addAll(Arrays.asList(arr));
+
+        Queue<TreeNode> q2 = new LinkedList<>();
+        TreeNode root = new TreeNode(q1.remove());
+        q2.add(root);
+
+        while (!q1.isEmpty()) {
+            TreeNode node = q2.remove();
+            System.out.println("node=" + node);
+            if (node.left == null) {
+                try {
+                    Integer val = q1.remove();
+                    if (val != null) {
+                        node.left = new TreeNode(val);
+                        q2.add(node.left);
+                    }
+                } catch (Exception e) {
+                    System.out.println("\tErr on left node creation: " + e);
+                    System.out.println("\tq1=" + q1);
                 }
-                System.out.print("\tarr[" + j + "]=" + arr[j] + ",");
             }
-            startingIndex = startingIndex + nodeCount;
-            System.out.println();
+            if (node.right == null) {
+                try {
+                    Integer val = q1.remove();
+                    if (val != null) {
+                        node.right = new TreeNode(val);
+                        q2.add(node.right);
+                    }
+                } catch (Exception e) {
+                    System.out.println("\tErr on right node creation: " + e);
+                    System.out.println("\tq1=" + q1);
+                }
+            }
         }
+        return root;
     }
 
-    public static void printInLevelOrder(TreeNode root, int height, int level) {
-        if (level == height) return;
+    /**
+     * Prints the binary tree in BSF (level-order).
+     *
+     * @param root
+     */
+    public static void printInLevelOrder(TreeNode root) {
         if (root == null) return;
-        if (level == 0) {
-            System.out.println(root.data);
-        } else {
-            printInLevelOrder(root.left, height, level);
-            printInLevelOrder(root.right, height, level);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.remove();
+            System.out.print(node.data);
+            if (node.left != null) queue.add(node.left);
+            if (node.right != null) queue.add(node.right);
         }
-        level++;
-        printInLevelOrder(root, height, level);
+
+        System.out.println("\ndone.");
     }
 
+    /**
+     * Prints the tree in DFS.
+     *
+     * @param root
+     */
     public static void printInorder(TreeNode root) {
         if (root == null) return;
         printInorder(root.left);
