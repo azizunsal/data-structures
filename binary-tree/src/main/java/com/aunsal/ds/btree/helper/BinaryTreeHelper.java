@@ -51,7 +51,7 @@ public final class BinaryTreeHelper {
     }
 
     /**
-     * Creates a binary tree from given integer array. Array can contain null values.
+     * Creates a binary tree from given integer array. Array can also contain null values.
      * Method behaves null values as path terminators.
      *
      * @param arr
@@ -68,30 +68,19 @@ public final class BinaryTreeHelper {
 
         while (!q1.isEmpty()) {
             TreeNode node = q2.remove();
-            System.out.println("node=" + node);
-            if (node.left == null) {
-                try {
-                    Integer val = q1.remove();
-                    if (val != null) {
-                        node.left = new TreeNode(val);
-                        q2.add(node.left);
-                    }
-                } catch (Exception e) {
-                    System.out.println("\tErr on left node creation: " + e);
-                    System.out.println("\tq1=" + q1);
-                }
+            Integer val = q1.remove();
+            if (val != null) {
+                node.left = new TreeNode(val);
+                q2.add(node.left);
             }
-            if (node.right == null) {
-                try {
-                    Integer val = q1.remove();
-                    if (val != null) {
-                        node.right = new TreeNode(val);
-                        q2.add(node.right);
-                    }
-                } catch (Exception e) {
-                    System.out.println("\tErr on right node creation: " + e);
-                    System.out.println("\tq1=" + q1);
-                }
+
+            if (q1.isEmpty()) {
+                continue;
+            }
+            Integer rightNodeVal = q1.remove();
+            if (rightNodeVal != null) {
+                node.right = new TreeNode(rightNodeVal);
+                q2.add(node.right);
             }
         }
         return root;
