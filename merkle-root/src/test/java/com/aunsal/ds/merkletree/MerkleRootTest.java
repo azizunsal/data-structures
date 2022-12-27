@@ -20,16 +20,18 @@ class MerkleRootTest {
     }
 
     @Test
-    void findMerkleRoot_Block170Transaction_ReturnsTheMerkleRoot() {
+    void findMerkleRoot_Block170Transactions_ReturnsTheMerkleRoot() {
         ArrayList<String> blockTxList = FileUtils.getResourceFileAsString(BITCOIN_BLOCK_170_FILENAME);
+        assertEquals(2, blockTxList.size());
         String root = instance.findMerkleRoot(blockTxList);
         assertNotNull(root);
         assertEquals("7dac2c5666815c17a3b36427de37bb9d2e2c5ccec3f8633eb91a4205cb4c10ff", root);
     }
 
     @Test
-    void findMerkleRoot_Block286819Transaction_ReturnsTheMerkleRoot() {
+    void findMerkleRoot_Block286819Transactions_ReturnsTheMerkleRoot() {
         ArrayList<String> blockTxList = FileUtils.getResourceFileAsString(BITCOIN_BLOCK_286819_FILENAME);
+        assertEquals(99, blockTxList.size());
         String root = instance.findMerkleRoot(blockTxList);
         assertNotNull(root);
         assertEquals("871714dcbae6c8193a2bb9b2a69fe1c0440399f38d94b3a0f1b447275a29978a", root);
