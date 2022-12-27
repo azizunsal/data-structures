@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/binary-search-tree" />
             <option value="$PROJECT_DIR$/binary-tree" />
             <option value="$PROJECT_DIR$/linkedlist" />
+            <option value="$PROJECT_DIR$/merkle-root" />
             <option value="$PROJECT_DIR$/queue" />
             <option value="$PROJECT_DIR$/stack" />
           </set>

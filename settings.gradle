@@ -15,4 +15,6 @@ include 'queue'
 include 'binary-search-tree'
 include 'linkedlist'
 include 'binary-tree'
+include 'binary-tree'
+include 'merkle-root'
 
